@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="assets/favicon.png"/>
+      </ion-avatar>
+      <ion-avatar slot="end">
+        <img alt="Silhouette of a person's head" src="assets/avatar.png"/>
+      </ion-avatar>
+      <ion-label slot="end">Bruce Wayne</ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br/>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Notifications</ion-card-title>
+    </ion-card-header>
+    <ion-button (click)="sendNotification()">Notification locale</ion-button>
+  </ion-card>
+  <br/>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Informations Système</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label><strong>OS :</strong></ion-label>
+          <ion-text>{{ deviceInfo.operatingSystem }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Navigateur :</strong></ion-label>
+          <ion-text>{{ browserInfo }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Version :</strong></ion-label>
+          <ion-text>{{ deviceInfo.osVersion }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><strong>Fabricant :</strong></ion-label>
+          <ion-text>{{ deviceInfo.manufacturer }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><strong>Modèle :</strong></ion-label>
+          <ion-text>{{ deviceInfo.model }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label><strong>UUID :</strong></ion-label>
+          <ion-text>{{ deviceInfo.uuid || 'Non disponible' }}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

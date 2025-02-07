@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {StatusBar} from "@capacitor/status-bar";
 import {App} from "@capacitor/app";
+import {LocalNotifications} from "@capacitor/local-notifications";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,9 @@ import {App} from "@capacitor/app";
 export class AppComponent implements OnInit {
   private fullScreenInterval: any;
 
-  constructor() {
+  constructor(private router: Router) {
     this.hideStatusBar();
+    this.listenToNotifications();
 
     App.addListener('appStateChange', (state) => {
       if (state.isActive) {
@@ -20,7 +23,14 @@ export class AppComponent implements OnInit {
       }
     });
   }
+  listenToNotifications() {
+    LocalNotifications.addListener('localNotificationActionPerformed', (notification) => {
+      console.log('Notification cliquée :', notification);
 
+      // Rediriger vers la page des messages
+      this.router.navigate(['/tabs/messages']);
+    });
+  }
   ngOnInit() {
     this.hideStatusBar();
 
