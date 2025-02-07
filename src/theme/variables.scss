@@ -1,2 +1,11 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+:root {
+  --ion-color-primary: #007E3A; /* Vert Vaud */
+  --ion-color-primary-rgb: 0, 126, 58;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+
+  --ion-color-secondary: #f0f0f0; /* Gris clair */
+  --ion-color-secondary-rgb: 240, 240, 240;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+}
